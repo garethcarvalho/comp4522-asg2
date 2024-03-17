@@ -76,25 +76,22 @@ superior(X,Y) :- supervise(X,Y).
 subordinate(X,Y) :- superior(Y,X).
 
 % Should you need to write new rules, please enter them here.
-earns_more_than_amt(X, Y) :- salary(X, S), S >= Y.
+earns_more_than_amt(X, Y) :- salary(X, S), S > Y.
 works_at_least(X, Y, Z) :- works_on(X, Y, E), E >= Z.
-
-earns_more_than_person(X, Y) :- salary(X, SX), salary(Y, SY), SX > SY.
-
-is_superior(X, Y) :- supervise(X, Y).
-is_superior(X, Y) :- supervise(X, T), is_superior(T, Y).
-
-is_president(X) :- employee(Y), not subordinate(X, Y), is_superior(X, Y).
 
 
 %-------------------------------------------------------------
 % Queries
 % Write your queries here .
+
+% Question 1.
 q1(X) :- female(X), works_on(X, computerization, 10), superior(jennifer, X).
 
-
+% Question 2.
 q2(X) :- earns_more_than_amt(X, 40000), department(X, research).
 
-% q3(X) :- superior(Y, X) = false.
+% Question 3. THIS ONE DOES NOT WORK
+q3(X) :- superior(Y, X) = false.
 
+% Question 4.
 q4(X) :- works_at_least(X, productx, 20).
