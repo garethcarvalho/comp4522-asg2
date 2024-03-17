@@ -83,11 +83,15 @@ works_at_least(X, Y, Z) :- works_on(X, Y, E), E >= Z.
 %-------------------------------------------------------------
 % Queries
 % Write your queries here .
-q1(X) :- female(X), works_on(X, computerization, 10), superior(jennifer, X).
 
+% Question 1.
+female(X), works_on(X, computerization, 10), superior(jennifer, X).
 
-q2(X) :- earns_more_than_amt(X, 40000), department(X, research).
+% Question 2.
+earns_more_than_amt(X, 40000), department(X, research).
 
+% Question 3.
 % q3(X) :- superior(Y, X) = false.
 
-q4(X) :- works_at_least(X, productx, 20).
+% Question 4.
+works_at_least(X, productx, 20).
